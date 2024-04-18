@@ -23,14 +23,12 @@ class CatalogController extends Controller
     {
         parent::__construct($pageService);
         $this->request = $request;
-
-
     }
 
-    public function router(CatalogRouter $catalogRouter){
-
+    public function router(CatalogRouter $catalogRouter)
+    {
         $page = $catalogRouter->getPage();
-        switch($catalogRouter->getPageType()){
+        switch ($catalogRouter->getPageType()) {
             case 'catalog':
                 return $this->index($page);
             case 'category':
@@ -44,21 +42,25 @@ class CatalogController extends Controller
 
     public function index($page)
     {
-        return view('catalog.index',[
+        return view('catalog.index', [
             'page' => $this->pageService->getPage('catalog'),
             'categories' => Category::with('categories')->whereIsActive(1)->whereNull('category_id')->orderBy('pos')->get(),
-            'products' => Product::with('stickers')->whereIsActive(1)->orderBy('pos')->orderBy('created_at','desc')->paginate(setting('general.products_count'))
+            'products' => Product::with('stickers')->whereIsActive(1)->orderBy('pos')->orderBy('created_at',
+                'desc')->paginate(setting('general.products_count'))
         ]);
     }
 
-    public function product($page){
+    public function product($page)
+    {
         $productService = new ProductService($page);
         $breadcrumbService = new BreadcrumbsService();
         $breadcrumbService->product($page)->generate();
         $seoService = new SeoService();
         $seoService->generateForProduct($page);
-        return view('catalog.product',[
+       
+        return view('catalog.product', [
             'page' => $page,
+            'seo' => $page->seo,
             'productAdvantages' => ProductAdvantage::whereIsActive(1)->orderBy('pos')->get(),
             'parameterGroups' => $productService->parameterGroups,
             'similarProducts' => $productService->similarProducts,
@@ -68,7 +70,7 @@ class CatalogController extends Controller
     public function category($page)
     {
         $categoryService = new CategoryService($page, $this->request);
-        return view('catalog.category',[
+        return view('catalog.category', [
             'page' => $page,
             'categories' => Category::with('categories')->whereNull('category_id')->whereIsActive(1)->orderBy('pos')->get(),
             'products' => $categoryService->getProductsByCategory()->paginate(setting('general.products_count')),
@@ -79,10 +81,10 @@ class CatalogController extends Controller
     {
         $categoryService = new CategoryService($page, $this->request);
         $leftCategoryMenuItems = collect([]);
-        if(isset($page->category)){
+        if (isset($page->category)) {
             $leftCategoryMenuItems = $page->categories->count() ? $page->categories : $page->category->categories;
         }
-        return view('catalog.sub-category',[
+        return view('catalog.sub-category', [
             'page' => $page,
             'products' => $categoryService->filteredProducts->paginate(setting('general.products_count')),
             'filterParameters' => $categoryService->filterParameters,
@@ -93,7 +95,8 @@ class CatalogController extends Controller
 
 
     //post
-    public function ajaxFilter(Request $request){
+    public function ajaxFilter(Request $request)
+    {
         $page = Category::whereId($request->category_id)->first();
         $categoryService = new CategoryService($page, $this->request);
         $view = view('catalog.ajax-items', [
