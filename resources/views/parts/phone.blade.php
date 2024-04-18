@@ -1,0 +1,1 @@
+<a href="tel:{{zText::clearPhone($phone)}}" class="{{$class ?? ''}}">{{$phone}}</a>

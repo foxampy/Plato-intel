@@ -1,0 +1,14 @@
+._js-cart-count._error{
+    border-color: red!important;
+    border: 1px solid;
+}
+
+button._active.add-to-cart-btn, button.detail-product-cart-btn._active{
+    background-color: #704813;
+    border-color: #704813;
+}
+
+.on-order{
+	color: #704813;
+	font-size: 18px;
+}

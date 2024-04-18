@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /order
+
+Sitemap: https://plato-intel.by/sitemap.xml
