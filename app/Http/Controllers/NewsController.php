@@ -8,6 +8,7 @@ use App\Services\PageService;
 class NewsController extends Controller
 {
     public const PER_PAGE = 6;
+
     public function __construct(PageService $pageService)
     {
         parent::__construct($pageService);
@@ -19,7 +20,8 @@ class NewsController extends Controller
             'page' => $this->pageService->getPage('news'),
             'news' => News::query()
                 ->orderBy('pos')
-                ->orderBy('created_at','desc')
+                ->where('is_active', true)
+                ->orderBy('created_at', 'desc')
                 ->paginate(self::PER_PAGE),
         ]);
     }
@@ -29,10 +31,11 @@ class NewsController extends Controller
         $page = $this->pageService->getNewsItem($slug);
         return view('page', [
             'page' => $page,
-            'news' => News::whereIsActive(1)->where('id','!=',$page->id)->orderBy('created_at','desc')->take(3)->get()
+            'news' => News::whereIsActive(1)
+                ->where('id', '!=', $page->id)
+                ->orderBy('created_at','desc')->take(3)->get()
         ]);
     }
-
 
 
 }
