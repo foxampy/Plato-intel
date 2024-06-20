@@ -18,23 +18,26 @@ class SeoService
 
         $seo = Seo::firstOrNew(['table' => $table, 'item_id' => $model->id]);
 
-        $seo->title ?? $seo->title = $this->setTitle($model);
-        $seo->description ?? $seo->description = $this->setDescription($model);
+            $seo->title ?? $seo->title = $this->setTitle($model);
+            $seo->description ?? $seo->description = $this->setDescription($model);
 
         \View::share(compact('seo'));
     }
-	
-	public function generateForProduct($model): void
+
+    public function generateForProduct($model): Seo
     {
 
         $table = $model->getTable();
 
         $seo = Seo::firstOrNew(['table' => $table, 'item_id' => $model->id]);
 
-        $seo->title = $model->name.' купить в Минске недорого, цена';
-        $seo->description = 'Купить '.$model->name.' в Минске по доступной цене. Доставка по всей Беларуси. Опт, розница. Магазин электротехники Plato-Intel.';
+        if (!$seo->title && !$seo->description) {
+            $seo->title = $model->name . ' купить в Минске недорого, цена';
+            $seo->description = 'Купить ' . $model->name . ' в Минске по доступной цене. Доставка по всей Беларуси. Опт, розница. Магазин электротехники Plato-Intel.';
+        }
 
         \View::share(compact('seo'));
+        return $seo;
     }
 
 
@@ -44,7 +47,7 @@ class SeoService
      */
     public function setTitle($model)
     {
-        if(!$model->title && !$model->name){
+        if (!$model->title && !$model->name) {
             return $model->carModel->name;
         }
         return ($model->title ?? $model->name);

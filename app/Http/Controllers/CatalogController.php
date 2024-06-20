@@ -55,12 +55,10 @@ class CatalogController extends Controller
         $productService = new ProductService($page);
         $breadcrumbService = new BreadcrumbsService();
         $breadcrumbService->product($page)->generate();
-        $seoService = new SeoService();
-        $seoService->generateForProduct($page);
-       
+        
         return view('catalog.product', [
             'page' => $page,
-            'seo' => $page->seo,
+            'seo' => (new SeoService())->generateForProduct($page),
             'productAdvantages' => ProductAdvantage::whereIsActive(1)->orderBy('pos')->get(),
             'parameterGroups' => $productService->parameterGroups,
             'similarProducts' => $productService->similarProducts,

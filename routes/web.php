@@ -17,7 +17,6 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('news', NewsController::class)->only(['index', 'show']);
 Route::get('/catalog/{parts?}', [CatalogController::class, 'router'])->where(['parts' => '.+'])->name('catalog');
-Route::get('/catalog/{parts?}', [CatalogController::class, 'router'])->where(['parts' => '.+'])->name('catalog');
 Route::get('/contacts', [PageController::class, 'contacts'])->name('contacts');
 Route::get('/order', [OrderController::class, 'index'])->name('order');
 Route::get('/{slug}', [PageController::class, 'page'])->name('page');
