@@ -78,9 +78,9 @@
                         <div class="col-auto">
                             <div class="developer mt-20">
                                 <div class="w-icon-left">
-                                    <a rel="nofollow" href="https://zmitroc.by" target="_blank">Разработка сайта</a> &
-                                    <a rel="nofollow" href="https://zmitroc.by/pages/promotion" target="_blank">SEO-оптимизация</a>
-                                    ZmitroC.by &trade;
+                                    Разработка сайта
+                                    <a href="https://zmitroc.by" target="_blank">ZmitroC.by</a>™ &
+                                    <a href="https://zmitroc.by/pages/promotion" target="_blank">SEO-оптимизация</a>
                                     <div class="icon fcm">
                                         <svg width="10" height="10" viewBox="0 0 10 10"
                                              xmlns="http://www.w3.org/2000/svg">
