@@ -10,10 +10,10 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('news/magnitnyj-puskatel-tipy-konstrukciya-i-princip-raboty', fn() => redirect('/', 301));
-Route::get('news/naznachenie-vidy-ustrojstvo-i-sovety-po-vyboru-koncevyh-vyklyuchatelej', fn() => redirect('/', 301));
-Route::get('news/rele-maksimalnogo-toka-osnovnye-vidy-i-princip-raboty', fn() => redirect('/', 301));
-Route::get('news/avtomaticheskie-vyklyuchateli-naznachenie-vidy-princip-raboty', fn() => redirect('/', 301));
+//Route::get('news/magnitnyj-puskatel-tipy-konstrukciya-i-princip-raboty', fn() => redirect('/', 301));
+//Route::get('news/naznachenie-vidy-ustrojstvo-i-sovety-po-vyboru-koncevyh-vyklyuchatelej', fn() => redirect('/', 301));
+//Route::get('news/rele-maksimalnogo-toka-osnovnye-vidy-i-princip-raboty', fn() => redirect('/', 301));
+//Route::get('news/avtomaticheskie-vyklyuchateli-naznachenie-vidy-princip-raboty', fn() => redirect('/', 301));
 Route::get('news/novinka-modulnye-kontaktory-finder', fn() => redirect('/', 301));
 
 Route::group(['prefix' => 'admin'], function () {
