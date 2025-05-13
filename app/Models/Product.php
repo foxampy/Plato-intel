@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
+use App\Models\Traits\ActiveRecordScope;
 use App\Traits\SeoTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
     use SeoTrait;
+    protected static function booted()
+    {
+        static::addGlobalScope(new ActiveRecordScope());
+    }
 
     public const IMAGE_SIZES = [
         'small' => [330, 245],
