@@ -1,16 +1,71 @@
-/node_modules
-/public/build
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
+# Dependencies
+node_modules/
+.pnpm-store/
+.npm
+.yarn
+
+# Build
+dist/
+build/
+*.tsbuildinfo
+
+# Environment
 .env
-.env.backup
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+$null
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Cache
+.cache/
+*.cache
+
+# Test
+coverage/
+.nyc_output/
+
+# Temp files
+temp_*.tsx
+temp_*.php
+temp_*.json
+temp_*.css
+temp_*.xml
+temp_*.html
+temp_*.blade.php
+temp_*.config.ts
+temp_*.md
+
+# SSH Keys (НИКОГДА не коммитить!)
+ssh_key
+ssh_key.pub
+*.pem
+*.key
+
+# Laravel (если используется)
+vendor/
+storage/*.key
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
 auth.json
-npm-debug.log
-yarn-error.log
-/.idea
-/.vscode
+homestead-*.vdi
+
+# Backup files
+*.backup
+*.bak
