@@ -1,171 +1,523 @@
-@include('common.header-mobile')
-<header class="s-header">
-    <div class="header-top">
-        <div class="container">
-            <div class="row row-header-top align-items-center pt-10">
-                <div class="col-8 col">
-                    <div class="row align-items-center">
-                        @if(setting('general.address'))
-                        <div class="col-auto col pb-10">
-                            <div class="w-icon-left location">
-                                <div class="icon">
-                                    <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6 15.1998L6.531 15.7646C6.46132 15.8392 6.37851 15.8984 6.28732 15.9388C6.19613 15.9792 6.09837 16 5.99963 16C5.90089 16 5.80312 15.9792 5.71193 15.9388C5.62074 15.8984 5.53793 15.8392 5.46825 15.7646L5.46375 15.759L5.451 15.7454L5.4045 15.695C5.14012 15.4045 4.88008 15.1095 4.6245 14.8102C3.9828 14.0602 3.36835 13.2841 2.7825 12.4838C2.1135 11.5638 1.4295 10.5238 0.90975 9.49666C0.40125 8.48948 0 7.39829 0 6.39991C0 2.76876 2.694 0 6 0C9.306 0 12 2.76876 12 6.39991C12 7.39829 11.5988 8.48948 11.0903 9.49586C10.5705 10.5246 9.88725 11.5638 9.2175 12.4838C8.39804 13.6035 7.52277 14.6754 6.5955 15.695L6.549 15.7454L6.53625 15.759L6.53175 15.7638L6 15.1998ZM6 8.79987C6.59674 8.79987 7.16903 8.54702 7.59099 8.09694C8.01295 7.64686 8.25 7.03642 8.25 6.39991C8.25 5.7634 8.01295 5.15296 7.59099 4.70288C7.16903 4.25279 6.59674 3.99994 6 3.99994C5.40326 3.99994 4.83097 4.25279 4.40901 4.70288C3.98705 5.15296 3.75 5.7634 3.75 6.39991C3.75 7.03642 3.98705 7.64686 4.40901 8.09694C4.83097 8.54702 5.40326 8.79987 6 8.79987Z" fill="#FFECA8"/>
-                                    </svg>
-                                </div>
-                                <div class="text">{!! setting('general.address') !!}</div>
-                            </div>
-                        </div>
-                        @endif
-                        @if(setting('general.working_hours'))
-                        <div class="col-auto col pb-10">
-                            <div class="w-icon-left worktime">
-                                <div class="icon">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C6.94943 0 5.90914 0.206926 4.93853 0.608964C3.96793 1.011 3.08601 1.60028 2.34315 2.34315C0.842855 3.84344 0 5.87827 0 8C0 10.1217 0.842855 12.1566 2.34315 13.6569C3.08601 14.3997 3.96793 14.989 4.93853 15.391C5.90914 15.7931 6.94943 16 8 16C10.1217 16 12.1566 15.1571 13.6569 13.6569C15.1571 12.1566 16 10.1217 16 8C16 6.94943 15.7931 5.90914 15.391 4.93853C14.989 3.96793 14.3997 3.08601 13.6569 2.34315C12.914 1.60028 12.0321 1.011 11.0615 0.608964C10.0909 0.206926 9.05058 0 8 0ZM11.36 11.36L7.2 8.8V4H8.4V8.16L12 10.32L11.36 11.36Z" fill="#FFECA8"/></svg>
-                                </div>
-                                <div class="text">{!! setting('general.working_hours') !!}</div>
-                            </div>
-                        </div>
-                        @endif
-                    </div>
-                </div>
-                @if(setting('general.email'))
-                <div class="col-4 col">
-                    <div class="row align-items-center justify-content-end">
-                        <div class="col-auto col pb-10">
-                            <div class="w-icon-left mail">
-                                <div class="icon">
-                                    <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.4 0.5H1.6C0.712 0.5 0 1.22312 0 2.125V11.875C0 12.306 0.168571 12.7193 0.468629 13.024C0.768687 13.3288 1.17565 13.5 1.6 13.5H14.4C14.8243 13.5 15.2313 13.3288 15.5314 13.024C15.8314 12.7193 16 12.306 16 11.875V2.125C16 1.69402 15.8314 1.2807 15.5314 0.975951C15.2313 0.671205 14.8243 0.5 14.4 0.5ZM12 11.0625H4V9.4375H12M12 7.8125H4V6.1875H12M14.4 4.5625H12V2.125H14.4" fill="#FFECA8"/></svg>
-                                </div>
-                                <div class="text">По всем вопросам <a href="mailto:{{setting('general.email')}}" class="no-underline semibold">{{setting('general.email')}}</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endif
-            </div>
-        </div>
+<!-- Plato Intel 2026 - Compact Header -->
+<header class="new-header">
+  <div class="header-container">
+    <!-- Logo -->
+    <div class="logo" onclick="window.location.href='/'">
+      <div class="logo-lamp">
+        <svg viewBox="0 0 70 90" class="lamp-svg">
+          <defs>
+            <radialGradient id="flameCore2" cx="50%" cy="55%" r="45%">
+              <stop offset="0%" stop-color="#fff5e6" stop-opacity="1" />
+              <stop offset="20%" stop-color="#ffd7a8" stop-opacity="0.95" />
+              <stop offset="50%" stop-color="#ffaa00" stop-opacity="0.8" />
+              <stop offset="80%" stop-color="#ff6600" stop-opacity="0.5" />
+              <stop offset="100%" stop-color="#ff4400" stop-opacity="0.2" />
+            </radialGradient>
+            <filter id="glowFilter2">
+              <feGaussianBlur stdDeviation="2" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <path d="M20 72 L22 82 L48 82 L50 72 Z" fill="#4a4a4a" />
+          <rect x="18" y="68" width="34" height="8" rx="2" fill="#5a5a5a" />
+          <path d="M23 62 L25 68 L45 68 L47 62 Z" fill="#6a6a6a" />
+          <ellipse cx="35" cy="62" rx="14" ry="4" fill="#7a7a7a" />
+          <path d="M15 62 Q15 15 35 10 Q55 15 55 62 Z" fill="url(#flameCore2)" opacity="0.9" />
+          <g transform="translate(35, 38)" filter="url(#glowFilter2)">
+            <rect x="-12" y="-10" width="24" height="20" rx="3" fill="#ffdd88" />
+            <circle cx="0" cy="10" r="5" fill="#ff9933" />
+          </g>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span>PLATO</span>
+        <span class="separator">-</span>
+        <span>INTEL</span>
+      </div>
     </div>
-    <div class="header-middle">
-        <div class="container pt-25 pb-15">
-            <div class="row row-header-middle align-items-center justify-content-between">
-                <div class="col-xxl-4 col-xl-4 col pb-10">
-                    <a @if(!\request()->routeIs('home')) href="/" @endif class="logo__link color-black no-underline">
-                        <div class="w-plato-logo-parent">
-                            <div class="row row-plato-logo-parent align-items-center">
-                                <div class="col-image col">
-                                    <div class="image">
-                                        @isset(json_decode(setting('general.logo'))[0])
-                                            <img src="{{asset('storage/'.json_decode(setting('general.logo'))[0]->download_link)}}" class="block" alt="{{env('APP_NAME')}}">
-                                        @endisset
-                                    </div>
-                                </div>
-                                <div class="col-text col">
-                                    <div class="w-text">
-                                        <div class="title">{{setting('general.company')}}</div>
-                                        <div class="description">{{setting('general.headline')}}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-xxl-8 col-xl-8 col">
-                    <div class="row justify-content-end align-items-end">
-                        <div class="col-auto">
-                            <div class="row row-footer-contacts align-items-end">
-                                @if(setting('general.phone_city'))
-                                <div class="col-auto col col-phone mb-10">
-                                    <div class="phone-item">
-                                        <div class="description mb-5">Многоканальный</div>
-                                        @include('parts.phone',['class' => 'phone__link _h5 semibold', 'phone' => setting('general.phone_city')])
-                                    </div>
-                                </div>
-                                @endif
-                                @if(setting('general.phone_a1'))
-                                <div class="col-auto col col-phone mb-10">
-                                    <div class="phone-item">
-                                        <div class="description mb-5">А1, мобильный</div>
-                                        @include('parts.phone',['class' => 'phone__link _h5 semibold', 'phone' => setting('general.phone_a1')])
-                                    </div>
-                                </div>
-                                @endif
-                                <div class="col-auto col mb-10">
-                                    <div class="row sm-gutters justify-content-xl-start justify-content-center center">
-                                        @include('parts.messengers')
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-auto col">
-                            <a class="button cart-btn w-icon-left {{$cart->count ? '_active' : ''}} _js-cart-total" href="{{route('order')}}" >
-                                <div class="icon">
-                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="40" height="40" rx="20" fill="#FFECA8"></rect>
-                                        <path d="M26.1993 14H11V15.6471H12.8399L15.6566 23.6213C15.7691 23.9388 15.9736 24.213 16.2424 24.407C16.5113 24.6009 16.8314 24.7053 17.1597 24.7059H23.7994V23.0588H17.1597L16.5773 21.4118H23.7994C24.1194 21.4118 24.409 21.2158 24.5346 20.9127L26.9345 15.148C26.987 15.0228 27.0085 14.886 26.997 14.7501C26.9854 14.6142 26.9411 14.4834 26.8682 14.3695C26.7952 14.2556 26.6959 14.1622 26.5791 14.0977C26.4624 14.0332 26.3318 13.9996 26.1993 14Z" fill="#1C212D"></path>
-                                        <path d="M17.7997 28C18.4624 28 18.9996 27.4469 18.9996 26.7647C18.9996 26.0825 18.4624 25.5294 17.7997 25.5294C17.137 25.5294 16.5997 26.0825 16.5997 26.7647C16.5997 27.4469 17.137 28 17.7997 28Z" fill="#1C212D"></path>
-                                        <path d="M22.5995 28C23.2622 28 23.7994 27.4469 23.7994 26.7647C23.7994 26.0825 23.2622 25.5294 22.5995 25.5294C21.9367 25.5294 21.3995 26.0825 21.3995 26.7647C21.3995 27.4469 21.9367 28 22.5995 28Z" fill="#1C212D"></path>
-                                    </svg>
-                                </div>
-                                <div class="text">
-                                    <div class="row align-items-center sm-gutters">
-                                        <div class="col-auto">Корзина</div>
-                                        <div class="col-auto"><div class="counter count">{{$cart->count}}</div></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+    <!-- Catalog Menu -->
+    <div class="catalog-menu" onmouseenter="this.classList.add('open')" onmouseleave="this.classList.remove('open')">
+      <button class="catalog-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <span>КАТАЛОГ</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      <div class="catalog-dropdown">
+        @if(isset($categories))
+          @foreach($categories as $category)
+            <a href="{{ route('catalog', $category->link) }}" class="catalog-item">
+              <span>{{ $category->name }}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          @endforeach
+        @endif
+      </div>
     </div>
-    @isset($siteMenus)
-        <div class="header-bottom">
-            <div class="container">
-                <ul class="row ul-site-nav main-menu">
-                    @foreach($siteMenus as $menu)
-                        @if($menu->url == 'catalog')
-                            <li class="col-auto col li li-dropper {{ Request::is($menu->url.'*') ? '_active' : '' }}">
-                                <a href="{{url($menu->url)}}" class="__link {{ !Request::is($menu->url.'*') ? '' : 'no-underline' }}">
-                                    <span class="dashed">{{$menu->title}}</span>
-                                    <div class="b-dropper"></div>
-                                </a>
-                                <div class="inset">
-                                    <ul class="ul-inset">
-                                        @foreach($categories as $category)
-                                            @if($category->categories->count())
-                                                <li class="li-inset li-dropper {{ Request::is('catalog/'.$category->link().'*') ? '_active' : '' }}">
-                                                    <a href="{{route('catalog',$category->link())}}" class="__link">
-                                                        <span class="text">{{$category->name}}</span>
-                                                        <div class="b-dropper"></div>
-                                                    </a>
-                                                    <div class="inset">
-                                                        <ul class="ul-inset">
-                                                            @foreach($category->categories as $subCategory)
-                                                                <li class="li-inset {{ Request::is('catalog/'.$subCategory->link().'*') ? '_active' : '' }}"><a href="{{route('catalog',$subCategory->link())}}" class="__link">{{$subCategory->name}}</a></li>
-                                                            @endforeach
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                            @else
-                                                <li class="li-inset {{ Request::is('catalog/'.$category->link().'*') ? '_active' : '' }}"><a href="{{route('catalog',$category->link())}}" class="__link">{{$category->name}}</a></li>
-                                            @endif
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </li>
-                        @else
-                            <li class="col-auto col li {{ Request::is($menu->url.'*') ? '_active' : '' }}">
-                                <a href="{{url($menu->url)}}" class="__link {{ !Request::is($menu->url.'*') ? '' : 'no-underline' }}">
-                                    <span class="dashed">{{$menu->title}}</span>
-                                </a>
-                            </li>
-                        @endif
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-    @endisset
+
+    <!-- Header Actions -->
+    <div class="header-actions">
+      <!-- Search -->
+      <button class="search-btn" onclick="toggleSearch()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+      
+      <!-- Phone -->
+      <a href="tel:+375296155672" class="phone-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        <span>+375 (29) 615-56-72</span>
+      </a>
+
+      <!-- Cart -->
+      @if(isset($cart))
+      <a href="{{ route('order') }}" class="cart-btn {{ $cart->count > 0 ? 'active' : '' }}">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span class="cart-count">{{ $cart->count }}</span>
+      </a>
+      @endif
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-toggle" onclick="toggleMobileMenu()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Search Overlay -->
+  <div id="searchOverlay" class="search-overlay" style="display:none;">
+    <div class="search-container">
+      <form action="/search" method="get" class="search-form">
+        <input type="text" name="q" placeholder="Поиск товаров..." autofocus />
+        <button type="submit">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </form>
+      <button class="search-close" onclick="toggleSearch()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu" style="display:none;">
+    @if(isset($siteMenus))
+      @foreach($siteMenus as $menu)
+        <a href="{{ url($menu->url) }}" class="mobile-menu-item">{{ $menu->title }}</a>
+      @endforeach
+    @endif
+    @if(isset($categories))
+      @foreach($categories as $category)
+        <a href="{{ route('catalog', $category->link) }}" class="mobile-menu-item">{{ $category->name }}</a>
+      @endforeach
+    @endif
+  </div>
 </header>
-<div class="header-empty"></div>
+
+<style>
+/* New Header Styles 2026 */
+.new-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #232731;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.logo-lamp {
+  width: 45px;
+  height: 60px;
+}
+
+.lamp-svg {
+  width: 100%;
+  height: 100%;
+  animation: lampFlicker 4s infinite ease-in-out;
+}
+
+@keyframes lampFlicker {
+  0%, 100% { filter: drop-shadow(0 0 4px #ffaa00) drop-shadow(0 0 8px #ff8800); }
+  50% { filter: drop-shadow(0 0 6px #ffaa00) drop-shadow(0 0 10px #ff8800); }
+}
+
+.logo-text {
+  display: flex;
+  gap: 2px;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.logo-text span:first-child {
+  font-size: 24px;
+  color: #e8e4dc;
+}
+
+.logo-text .separator {
+  color: #ff9a4d;
+  font-size: 18px;
+}
+
+.logo-text span:last-child {
+  font-size: 18px;
+  color: #ff9a4d;
+}
+
+/* Catalog Menu */
+.catalog-menu {
+  position: relative;
+}
+
+.catalog-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #2d313c;
+  border: 1px solid rgba(148, 143, 136, 0.15);
+  border-radius: 8px;
+  color: #e8e4dc;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.catalog-btn:hover {
+  border-color: #ff9a4d;
+  color: #ff9a4d;
+}
+
+.catalog-btn .arrow {
+  transition: transform 0.3s;
+}
+
+.catalog-menu.open .catalog-btn .arrow {
+  transform: rotate(180deg);
+}
+
+.catalog-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  min-width: 280px;
+  background: #232731;
+  border: 1px solid rgba(148, 143, 136, 0.15);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  z-index: 1001;
+}
+
+.catalog-menu.open .catalog-dropdown {
+  display: block;
+}
+
+.catalog-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  color: #9a9590;
+  text-decoration: none;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.catalog-item:hover {
+  background: rgba(255, 154, 77, 0.1);
+  color: #e8e4dc;
+}
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.search-btn, .mobile-toggle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2d313c;
+  border: 1px solid rgba(148, 143, 136, 0.15);
+  border-radius: 8px;
+  color: #9a9590;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.search-btn:hover, .mobile-toggle:hover {
+  border-color: #ff9a4d;
+  color: #ff9a4d;
+}
+
+.mobile-toggle {
+  display: none;
+}
+
+.phone-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #2d313c;
+  border: 1px solid rgba(148, 143, 136, 0.15);
+  border-radius: 8px;
+  color: #e8e4dc;
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.phone-link:hover {
+  border-color: #ff9a4d;
+  color: #ff9a4d;
+}
+
+.cart-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2d313c;
+  border: 1px solid rgba(148, 143, 136, 0.15);
+  border-radius: 8px;
+  color: #9a9590;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.cart-btn:hover {
+  border-color: #ff9a4d;
+  color: #ff9a4d;
+}
+
+.cart-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff9a4d;
+  color: #1a1d26;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 2px;
+}
+
+/* Search Overlay */
+.search-overlay {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background: #232731;
+  padding: 20px;
+  border-bottom: 1px solid rgba(148, 143, 136, 0.15);
+}
+
+.search-container {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-form {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-form input {
+  flex: 1;
+  padding: 12px 16px;
+  background: #2d313c;
+  border: 1px solid rgba(148, 143, 136, 0.15);
+  border-radius: 8px;
+  color: #e8e4dc;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-form input:focus {
+  border-color: #ff9a4d;
+}
+
+.search-form button {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff9a4d;
+  border: none;
+  border-radius: 8px;
+  color: #1a1d26;
+  cursor: pointer;
+}
+
+.search-close {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2d313c;
+  border: 1px solid rgba(148, 143, 136, 0.15);
+  border-radius: 8px;
+  color: #9a9590;
+  cursor: pointer;
+}
+
+.search-close:hover {
+  border-color: #ff9a4d;
+  color: #ff9a4d;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background: #232731;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom: 1px solid rgba(148, 143, 136, 0.15);
+}
+
+.mobile-menu-item {
+  padding: 14px 16px;
+  background: #2d313c;
+  border: 1px solid rgba(148, 143, 136, 0.15);
+  border-radius: 8px;
+  color: #e8e4dc;
+  text-decoration: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-container {
+    gap: 12px;
+    padding: 0 12px;
+  }
+
+  .logo-lamp {
+    width: 35px;
+    height: 48px;
+  }
+
+  .logo-text span:first-child {
+    font-size: 18px;
+  }
+
+  .logo-text .separator {
+    font-size: 14px;
+  }
+
+  .logo-text span:last-child {
+    font-size: 14px;
+  }
+
+  .catalog-btn span {
+    display: none;
+  }
+
+  .phone-link span {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+}
+</style>
+
+<script>
+function toggleSearch() {
+  const overlay = document.getElementById('searchOverlay');
+  overlay.style.display = overlay.style.display === 'none' ? 'block' : 'none';
+  if (overlay.style.display === 'block') {
+    overlay.querySelector('input').focus();
+  }
+}
+
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+}
+</script>
